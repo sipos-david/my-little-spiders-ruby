@@ -1,0 +1,42 @@
+<h1 class="mt-32">Roommates</h1>
+
+<section class="table">
+  <%= link_to "Add new friend", new_roommate_path, class: "button-black table-add" %>
+  <div class="table-wrapper">
+    <table id="roommates">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Location</th>
+        <th scope="col">Num of nightmares</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% if @roommates.length == 0 %>
+        <tr>
+          <td colspan="4" class="table-no-content-row">
+            No roommate available 😭
+          </td>
+        </tr>
+      <% else %>
+        <% @roommates.each do |roommate| %>
+          <tr id="<%= dom_id roommate %>">
+            <td><%= roommate.name %></td>
+            <td><%= roommate.location %></td>
+            <td><%= roommate.num_of_nightmares %></td>
+            <td class="actions">
+              <%= link_to "View", roommate, class: "actions-view" %>
+              <%= link_to "Edit", edit_roommate_path(roommate), class: "actions-edit" %>
+              <%= button_to "Delete", roommate, method: :delete, class: "actions-delete" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<p style="color: green"><%= notice %></p>

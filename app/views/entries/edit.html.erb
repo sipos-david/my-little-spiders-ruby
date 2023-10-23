@@ -1,0 +1,8 @@
+<h1 class="mt-32">Editing entry</h1>
+
+<%= render "form", entry: @entry %>
+
+<div class="mt-8">
+  <%= link_to "Show this entry", @entry, class: "button-neutral" %> |
+  <%= link_to "Back to roommate", roommate_path(@entry.roommate_id), class: "button-neutral" %>
+</div>

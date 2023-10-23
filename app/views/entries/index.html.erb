@@ -1,0 +1,41 @@
+<h1 class="mt-32">Entries</h1>
+
+<div class="table-wrapper">
+  <table id="entries">
+    <thead>
+    <tr>
+      <th scope="col">Roommate</th>
+      <th scope="col">Date</th>
+      <th scope="col">Text</th>
+      <th scope="col">Respect gained</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <% if @entries.length == 0 %>
+      <tr>
+        <td colspan="5" class="table-no-content-row">
+          No entry available 😭
+        </td>
+      </tr>
+    <% else %>
+      <% @entries.each do |entry| %>
+        <tr id="<%= dom_id entry %>">
+          <td><%= link_to entry.roommate.name, entry.roommate, class: "actions-view" %></td>
+          <td><%= entry.date %></td>
+          <td><%= entry.text %></td>
+          <td><%= entry.respect_gained %></td>
+          <td class="actions">
+            <%= link_to "View", entry, class: "actions-view" %>
+            <%= link_to "Edit", edit_entry_path(entry), class: "actions-edit" %>
+            <%= button_to "Delete", entry, method: :delete, class: "actions-delete" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<p style="color: green"><%= notice %></p>

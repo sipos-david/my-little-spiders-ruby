@@ -1,0 +1,16 @@
+<h1 class="mt-32 mb-0">Entry</h1>
+
+<% if notice %>
+  <p style="color: green" class="mt-4"><%= notice %></p>
+<% end %>
+
+<%= render @entry %>
+
+<section class="action-bar mt-32">
+  <%= link_to "Edit this entry", edit_entry_path(@entry), class: "button-neutral" %> |
+  <%= link_to "Back to roommate", roommate_path(@entry.roommate_id), class: "button-neutral" %>
+</section>
+
+<div class="mt-8">
+  <%= button_to "Delete this entry", @entry, method: :delete, class: "button-delete" %>
+</div>

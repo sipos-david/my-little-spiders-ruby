@@ -1,0 +1,34 @@
+<%= form_with(model: entry, :class => "entity") do |form| %>
+  <% if entry.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+        <% entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.label :respect_gained, style: "display: block" %>
+    <%= form.number_field :respect_gained %>
+  </div>
+
+  <%= form.hidden_field :roommate_id %>
+
+  <div>
+    <%= form.submit class: "button-black mt-16" %>
+  </div>
+<% end %>

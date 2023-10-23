@@ -1,0 +1,53 @@
+<div id="<%= dom_id roommate %>">
+  <section class="roommate-details mt-16">
+    <p>
+      <strong>Location:</strong>
+      <%= roommate.location %>
+    </p>
+
+    <p>
+      <strong>Num of nightmares:</strong>
+      <%= roommate.num_of_nightmares %>
+    </p>
+  </section>
+
+  <section class="table">
+    <%= link_to "Add new entry", new_entry_path(roommate_id: roommate.id), class: "button-black table-add" %>
+    <div class="table-wrapper">
+      <table id="roommate-entries">
+        <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Text</th>
+          <th scope="col">Respect gained</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% if @entries.length == 0 %>
+          <tr>
+            <td colspan="4" class="table-no-content-row">
+              No entry available 😭
+            </td>
+          </tr>
+        <% else %>
+          <% @entries.each do |entry| %>
+            <tr id="<%= dom_id entry %>">
+              <td><%= entry.date %></td>
+              <td><%= entry.text %></td>
+              <td><%= entry.respect_gained %></td>
+              <td class="actions">
+                <%= link_to "View", entry, class: "actions-view" %>
+                <%= link_to "Edit", edit_entry_path(entry), class: "actions-edit" %>
+                <%= button_to "Delete", entry, method: :delete, class: "actions-delete" %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

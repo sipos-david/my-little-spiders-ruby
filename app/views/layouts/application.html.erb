@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>MyLittleSpiders</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag 'favicon.ico' %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,28 @@
   </head>
 
   <body>
+  <header>
+    <%= image_tag 'my-little-friend.png' %>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to "Roommates", roommates_path %>
+        </li>
+        <li>
+          <%= link_to "Entries", entries_path %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <%= yield %>
+  </main>
+
+  <footer>
+    <p>
+      © 2023 <b>Web developers</b>
+    </p>
+  </footer>
   </body>
 </html>
