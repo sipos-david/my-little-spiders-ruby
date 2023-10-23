@@ -34,13 +34,13 @@
         <% else %>
           <% @entries.each do |entry| %>
             <tr id="<%= dom_id entry %>">
-              <td class=""><%= entry.date %></td>
-              <td class=""><%= entry.text %></td>
-              <td class=""><%= entry.respect_gained %></td>
-              <td class="">
-                <%= link_to "Show this entry", entry %>
-                <%= link_to "Edit this entry", edit_entry_path(entry) %> |
-                <%= button_to "Destroy this entry", entry, method: :delete %>
+              <td><%= entry.date %></td>
+              <td><%= entry.text %></td>
+              <td><%= entry.respect_gained %></td>
+              <td class="actions">
+                <%= link_to "View", entry, class: "actions-view" %>
+                <%= link_to "Edit", edit_entry_path(entry), class: "actions-edit" %>
+                <%= button_to "Delete", entry, method: :delete, class: "actions-delete" %>
               </td>
             </tr>
           <% end %>
