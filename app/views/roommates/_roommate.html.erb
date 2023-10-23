@@ -12,7 +12,7 @@
   </section>
 
   <section class="table">
-    <%= link_to "Add new entry", new_entry_path, class: "button-black table-add" %>
+    <%= link_to "Add new entry", new_entry_path(roommate_id: roommate.id), class: "button-black table-add" %>
     <div class="table-wrapper">
       <table id="roommate-entries">
         <thead>

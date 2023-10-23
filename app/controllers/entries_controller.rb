@@ -12,7 +12,9 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
+    @roommate = Roommate.find(params[:roommate_id])
     @entry = Entry.new
+    @entry.roommate_id = @roommate.id
   end
 
   # GET /entries/1/edit

@@ -26,10 +26,7 @@
     <%= form.number_field :respect_gained %>
   </div>
 
-  <div>
-    <%= form.label :roommate_id, style: "display: block" %>
-    <%= form.text_field :roommate_id %>
-  </div>
+  <%= form.hidden_field :roommate_id %>
 
   <div>
     <%= form.submit %>
