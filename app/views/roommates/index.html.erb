@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Roommates</h1>
+
+<div id="roommates">
+  <% @roommates.each do |roommate| %>
+    <%= render roommate %>
+    <p>
+      <%= link_to "Show this roommate", roommate %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New roommate", new_roommate_path %>
