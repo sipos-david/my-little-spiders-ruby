@@ -1,57 +1,53 @@
 <div id="<%= dom_id roommate %>">
-  <p>
-    <strong>Name:</strong>
-    <%= roommate.name %>
-  </p>
+  <section class="roommate-details mt-16">
+    <p>
+      <strong>Location:</strong>
+      <%= roommate.location %>
+    </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= roommate.location %>
-  </p>
+    <p>
+      <strong>Num of nightmares:</strong>
+      <%= roommate.num_of_nightmares %>
+    </p>
+  </section>
 
-  <p>
-    <strong>Num of nightmares:</strong>
-    <%= roommate.num_of_nightmares %>
-  </p>
-
-  <%= link_to "Add new entry", new_entry_path %>
-  <div class="table-wrapper">
-    <table id="roommate-entries">
-      <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Text</th>
-        <th scope="col">Respect gained
-        </th>
-        <th scope="col">
-          Actions
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-
-      <% if @entries.length == 0 %>
+  <section class="table">
+    <%= link_to "Add new entry", new_entry_path, class: "button-black table-add" %>
+    <div class="table-wrapper">
+      <table id="roommate-entries">
+        <thead>
         <tr>
-          <td colspan="4">
-            No entry available 😭
-          </td>
+          <th scope="col">Date</th>
+          <th scope="col">Text</th>
+          <th scope="col">Respect gained</th>
+          <th scope="col">Actions</th>
         </tr>
-      <% else %>
-        <% @entries.each do |entry| %>
-          <tr id="<%= dom_id entry %>">
-            <td class=""><%= entry.date %></td>
-            <td class=""><%= entry.text %></td>
-            <td class=""><%= entry.respect_gained %></td>
-            <td class="">
-              <%= link_to "Show this entry", entry %>
-              <%= link_to "Edit this entry", edit_entry_path(entry) %> |
-              <%= button_to "Destroy this entry", entry, method: :delete %>
+        </thead>
+        <tbody>
+
+        <% if @entries.length == 0 %>
+          <tr>
+            <td colspan="4" class="table-no-content-row">
+              No entry available 😭
             </td>
           </tr>
+        <% else %>
+          <% @entries.each do |entry| %>
+            <tr id="<%= dom_id entry %>">
+              <td class=""><%= entry.date %></td>
+              <td class=""><%= entry.text %></td>
+              <td class=""><%= entry.respect_gained %></td>
+              <td class="">
+                <%= link_to "Show this entry", entry %>
+                <%= link_to "Edit this entry", edit_entry_path(entry) %> |
+                <%= button_to "Destroy this entry", entry, method: :delete %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
 
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </div>
