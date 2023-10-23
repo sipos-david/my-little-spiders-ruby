@@ -1,9 +1,7 @@
-<h1>New roommate</h1>
+<h1 class="mt-32">New roommate</h1>
 
 <%= render "form", roommate: @roommate %>
 
-<br>
+<%= link_to "Back to roommates", roommates_path, class: "button-neutral mt-8" %>
 
-<div>
-  <%= link_to "Back to roommates", roommates_path %>
-</div>
+

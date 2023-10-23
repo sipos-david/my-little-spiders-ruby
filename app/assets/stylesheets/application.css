@@ -111,7 +111,6 @@ input:invalid {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    font-weight: 600;
     color: #ffffff;
     background: #000;
     transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
@@ -119,14 +118,31 @@ input:invalid {
     transition-duration: 300ms;
 }
 
-.button-black:focus-visible, .button-black:focus, .button-black:focus-within {
-    outline: #a3a3a3 2px solid;
+.button-black:focus-visible, .button-black:focus, .button-black:focus-within, .button-black:hover {
     background: #404040;
+    cursor: pointer;
 }
 
-.button-black:hover {
+.button-black:focus-visible, .button-black:focus, .button-black:focus-within {
+    outline: #a3a3a3 2px solid;
+}
+
+.button-neutral {
+    margin: 0;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #18181d;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.button-neutral:focus-visible, .button-neutral:focus, .button-neutral:focus-within, .button-neutral:hover {
+    outline: none;
+    background: #e7e7e7;
     cursor: pointer;
-    background: #404040;
 }
 
 /* Table */
@@ -198,4 +214,25 @@ tr td.actions > * {
 
 .actions-delete {
     color: red;
+}
+
+/* Forms */
+form.entity {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Helpers */
+.mt-32 {
+    margin-top: 32px;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-8 {
+    margin-top: 8px;
 }

@@ -1,4 +1,4 @@
-<%= form_with(model: roommate) do |form| %>
+<%= form_with(model: roommate, :class => "entity") do |form| %>
   <% if roommate.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(roommate.errors.count, "error") %> prohibited this roommate from being saved:</h2>
@@ -27,6 +27,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "button-black mt-16" %>
   </div>
 <% end %>
