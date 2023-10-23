@@ -1,14 +1,44 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Entries</h1>
 
-<div id="entries">
-  <% @entries.each do |entry| %>
-    <%= render entry %>
-    <p>
-      <%= link_to "Show this entry", entry %>
-    </p>
-  <% end %>
-</div>
+<section class="table">
+  <%= link_to "Add new entry", new_entry_path, class: "button-black table-add" %>
+  <div class="table-wrapper">
+    <table id="entries">
+      <thead>
+      <tr>
+        <th scope="col">Roommate</th>
+        <th scope="col">Date</th>
+        <th scope="col">Text</th>
+        <th scope="col">Respect gained</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
 
-<%= link_to "New entry", new_entry_path %>
+      <% if @entries.length == 0 %>
+        <tr>
+          <td colspan="4" style="text-align: center">
+            No entry available 😭
+          </td>
+        </tr>
+      <% else %>
+        <% @entries.each do |entry| %>
+          <tr id="<%= dom_id entry %>">
+            <td><%= link_to entry.roommate.name, entry.roommate, class: "actions-view" %></td>
+            <td><%= entry.date %></td>
+            <td><%= entry.text %></td>
+            <td><%= entry.respect_gained %></td>
+            <td class="actions">
+              <%= link_to "View", entry, class: "actions-view" %>
+              <%= link_to "Edit", edit_entry_path(entry), class: "actions-edit" %>
+              <%= button_to "Delete", entry, method: :delete, class: "actions-delete" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<p style="color: green"><%= notice %></p>
