@@ -58,13 +58,15 @@ class RoommatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_roommate
-      @roommate = Roommate.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def roommate_params
-      params.require(:roommate).permit(:name, :location, :num_of_nightmares)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_roommate
+    @roommate = Roommate.find(params[:id])
+    @entries = Entry.where(:roommate_id => params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def roommate_params
+    params.require(:roommate).permit(:name, :location, :num_of_nightmares)
+  end
 end
