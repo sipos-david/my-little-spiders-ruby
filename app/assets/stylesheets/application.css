@@ -190,6 +190,10 @@ tr td.actions > * {
     display: inline-block;
 }
 
+.table-no-content-row {
+    text-align: center;
+}
+
 .actions-view, .actions-edit, .actions-delete {
     text-decoration: none;
     margin: 0;
