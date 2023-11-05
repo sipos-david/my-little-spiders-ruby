@@ -25,14 +25,14 @@
         </thead>
         <tbody>
 
-        <% if @entries.length == 0 %>
+        <% if roommate.entries.length == 0 %>
           <tr>
             <td colspan="4" class="table-no-content-row">
               No entry available 😭
             </td>
           </tr>
         <% else %>
-          <% @entries.each do |entry| %>
+          <% roommate.entries.each do |entry| %>
             <tr id="<%= dom_id entry %>">
               <td><%= entry.date %></td>
               <td><%= entry.text %></td>
