@@ -49,7 +49,6 @@ class RoommatesController < ApplicationController
 
   # DELETE /roommates/1 or /roommates/1.json
   def destroy
-    Entry.destroy_by(:roommate_id => @roommate.id)
     @roommate.destroy
 
     respond_to do |format|
@@ -63,7 +62,6 @@ class RoommatesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_roommate
     @roommate = Roommate.find(params[:id])
-    @entries = Entry.where(:roommate_id => params[:id])
   end
 
   # Only allow a list of trusted parameters through.
