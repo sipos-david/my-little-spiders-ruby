@@ -13,17 +13,17 @@
 
   <div>
     <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, :required => true  %>
   </div>
 
   <div>
     <%= form.label :text, style: "display: block" %>
-    <%= form.text_field :text %>
+    <%= form.text_field :text, :required => true %>
   </div>
 
   <div>
     <%= form.label :respect_gained, style: "display: block" %>
-    <%= form.number_field :respect_gained %>
+    <%= form.number_field :respect_gained, :required => true %>
   </div>
 
   <%= form.hidden_field :roommate_id %>
