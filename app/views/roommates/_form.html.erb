@@ -13,17 +13,17 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, :required => true %>
   </div>
 
   <div>
     <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, :required => true %>
   </div>
 
   <div>
     <%= form.label :num_of_nightmares, style: "display: block" %>
-    <%= form.number_field :num_of_nightmares %>
+    <%= form.number_field :num_of_nightmares, :required => true, min: 0  %>
   </div>
 
   <div>
