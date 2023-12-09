@@ -9,9 +9,7 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
     get entries_url
     assert_response :success
     # The table on should have entries.size rows since they're present in the db
-    assert_dom "tbody" do
-      assert_dom "tr", entries.size
-    end
+    assert_dom "tbody tr", entries.size
   end
 
   test "should get new" do

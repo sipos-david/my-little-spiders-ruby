@@ -9,9 +9,7 @@ class RoommatesControllerTest < ActionDispatch::IntegrationTest
     get roommates_url
     assert_response :success
     # The table on should have roommates.size rows since they're present in the db
-    assert_dom "tbody" do
-      assert_dom "tr", roommates.size
-    end
+    assert_dom "tbody tr", roommates.size
   end
 
   test "should get new" do
