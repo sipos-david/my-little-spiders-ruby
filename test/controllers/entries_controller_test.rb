@@ -11,7 +11,7 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_entry_url
+    get new_entry_url, :params => { roommate_id: roommates(:one).id }
     assert_response :success
   end
 
@@ -43,6 +43,6 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
       delete entry_url(@entry)
     end
 
-    assert_redirected_to entries_url
+    assert_redirected_to roommate_url(@entry.roommate.id)
   end
 end
