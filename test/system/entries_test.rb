@@ -12,7 +12,7 @@ class EntriesTest < ApplicationSystemTestCase
 
   test "should create entry" do
     visit roommate_url(@entry.roommate)
-    click_on "View add new entry"
+    click_on "Add new entry"
 
     fill_in "Date", with: @entry.date
     fill_in "Respect gained", with: @entry.respect_gained

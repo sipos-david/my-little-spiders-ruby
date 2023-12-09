@@ -25,9 +25,8 @@ class RoommatesTest < ApplicationSystemTestCase
 
   test "should update Roommate" do
     visit roommate_url(@roommate)
-    click_on "View", match: :first
-
     click_on "Edit this roommate"
+
     fill_in "Location", with: @roommate.location
     fill_in "Name", with: @roommate.name
     fill_in "Num of nightmares", with: @roommate.num_of_nightmares
@@ -39,7 +38,7 @@ class RoommatesTest < ApplicationSystemTestCase
 
   test "should destroy Roommate" do
     visit roommate_url(@roommate)
-    click_on "Delete", match: :first
+    click_on "Delete this roommate", match: :first
 
     assert_text "Roommate was successfully destroyed"
   end
