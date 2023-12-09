@@ -8,11 +8,17 @@ class RoommatesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get roommates_url
     assert_response :success
+    # The table on should have roommates.size rows since they're present in the db
+    assert_dom "tbody" do
+      assert_dom "tr", roommates.size
+    end
   end
 
   test "should get new" do
     get new_roommate_url
     assert_response :success
+    # The roommate has 3 attributes + 1 submit input
+    assert_dom "form div input", 4
   end
 
   test "should create roommate" do
@@ -26,11 +32,16 @@ class RoommatesControllerTest < ActionDispatch::IntegrationTest
   test "should show roommate" do
     get roommate_url(@roommate)
     assert_response :success
+    assert_dom "h1", { text: @roommate.name }, "Roommate name is missing or not correct"
+    assert_dom "section p span", { text: @roommate.location }, "Roommate location is missing or not correct"
+    assert_dom "section p span", { text: @roommate.num_of_nightmares.to_s }, "Roommate num of nightmares is missing or not correct"
   end
 
   test "should get edit" do
     get edit_roommate_url(@roommate)
     assert_response :success
+    # The roommate has 3 attributes + 1 submit input
+    assert_dom "form div input", 4
   end
 
   test "should update roommate" do
